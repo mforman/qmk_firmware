@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "g/keymap_combo.h"
 #include "config.h"
 #include "version.h"
 
