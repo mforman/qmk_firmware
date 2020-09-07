@@ -1,29 +1,26 @@
 #include QMK_KEYBOARD_H
-#include "g/keymap_combo.h"
 #include "config.h"
 #include "version.h"
 
 enum keyboard_layers {
     _BASE = 0,
     _LOWER,
-    _RAISE,
-    _ADJUST
+    _RAISE
 };
 
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
 };
 
-#define MT_A    MT(MOD_LGUI, KC_A)
-#define MT_QUOT MT(MOD_LGUI, KC_QUOT)
-
 // Thumb cluster keys
 #define TC_ESC LGUI_T(KC_ESCAPE)
-#define TC_SPC LALT_T(KC_SPACE)
+#define TC_SPC LCTL_T(KC_SPACE)
 #define TC_TAB LT(_LOWER ,KC_TAB)
-#define TC_DEL LCTL_T(KC_DELETE)
+#define TC_DEL LALT_T(KC_DELETE)
 #define TC_BSP LSFT_T(KC_BSPACE)
 #define TC_ENT LT(_RAISE ,KC_ENTER)
+
+#include "g/keymap_combo.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -52,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT_ergodox_pretty(
 _______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______,
 _______, KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , _______,      _______, KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , _______,
-_______, MT_A   , KC_S   , KC_D   , KC_F   , KC_G   ,                        KC_H   , KC_J   , KC_K   , KC_L   , MT_QUOT, _______,
+_______, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,                        KC_H   , KC_J   , KC_K   , KC_L   , KC_QUOT, _______,
 _______, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , _______,      _______, KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, _______,
 _______, _______, _______, _______, TC_ESC ,                                          TC_DEL , _______, _______, _______, _______,
 
@@ -62,39 +59,27 @@ _______, _______, _______, _______, TC_ESC ,                                    
 ),
 
 [_LOWER] = LAYOUT_ergodox_pretty(
-_______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______,
-_______, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, _______,      _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
-_______, KC_GRV , KC_SCLN, KC_MINS, _______, _______,                        _______, KC_BSLS, KC_EQL , KC_LBRC, KC_RBRC, _______,
-_______, KC_TILD, KC_COLN, KC_UNDS, _______, _______, _______,      _______, _______, KC_PIPE, KC_PLUS, KC_LCBR, KC_RCBR, _______,
-_______, _______, _______, _______, _______,                                          _______, _______, _______, _______, _______,
+_______, _______      , _______     , _______     , _______     , _______, _______,      _______, _______, _______, _______, _______, _______, _______,
+_______, KC_F12       , KC_F7       , KC_F8       , KC_F9       , RESET  , _______,      _______, KC_INS , KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,
+_______, GUI_T(KC_F11), ALT_T(KC_F4), CTL_T(KC_F5), SFT_T(KC_F6), KC_VOLU,                        KC_CAPS, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
+_______, KC_F10       , KC_F1       , KC_F2       , KC_F3       , KC_VOLD, _______,      _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______,
+_______, _______      , _______     , _______     , _______     ,                                          KC_BTN3, _______, _______, _______, _______,
 
-                                             _______, _______,      _______, _______,
-                                                      _______,      _______,
-                                    _______, _______, _______,      _______, _______, _______
+                                                                  _______, _______,      _______, _______,
+                                                                           _______,      _______,
+                                                         _______, _______, _______,      _______, KC_BTN1, KC_BTN2
 ),
 
 [_RAISE] = LAYOUT_ergodox_pretty(
-_______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______,
-_______, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , _______,      _______, KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , _______,
-_______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  ,                        KC_CAPS, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
-_______, KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , _______,      _______, KC_INS , KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,
-_______, _______, _______, _______, _______,                                          _______, _______, _______, _______, _______,
+_______, _______, _______, _______, _______, _______, _______,      _______, _______, _______       , _______      , _______       , _______       , _______,
+_______, _______, KC_7   , KC_8   , KC_9   , _______, _______,      _______, _______, KC_LEFT_PAREN , KC_PLUS      , KC_RIGHT_PAREN, _______       , _______,
+_______, KC_COLN, KC_4   , KC_5   , KC_6   , KC_GRV ,                        KC_MINS, SFT_T(KC_LBRC), CTL_T(KC_EQL), ALT_T(KC_RBRC), GUI_T(KC_SCLN), _______,
+_______, KC_PIPE, KC_1   , KC_2   , KC_3   , _______, _______,      _______, _______, KC_LCBR       , KC_TILD      , KC_RCBR       , KC_BSLASH     , _______,
+_______, _______, _______, _______, KC_DOT ,                                          _______       , _______      , _______       , _______       , _______,
 
                                              _______, _______,      _______, _______,
                                                       _______,      _______,
-                                    _______, _______, _______,      _______, _______, _______
-),
-
-[_ADJUST] = LAYOUT_ergodox_pretty(
-_______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______,
-_______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, RESET  , _______,
-_______, _______, _______, _______, _______, _______,                        _______, _______, KC_VOLD, KC_VOLU, _______, _______,
-_______, _______, _______, _______, _______, _______, _______,      _______, _______, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, _______,
-_______, _______, _______, _______, _______,                                          _______, _______, _______, _______, _______,
-
-                                             _______, _______,      _______, _______,
-                                                      _______,      _______,
-                                    _______, _______, _______,      _______, _______, _______
+                                    KC_0   , _______, _______,      _______, _______, _______
 )
 };
 
@@ -107,7 +92,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 uint32_t layer_state_set_user(uint32_t state) {
-  state = update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
   uint8_t layer = biton32(state);
   ergodox_board_led_off();
   ergodox_right_led_1_off();
@@ -118,10 +102,6 @@ uint32_t layer_state_set_user(uint32_t state) {
       ergodox_right_led_1_on();
       break;
     case _RAISE:
-      ergodox_right_led_2_on();
-      break;
-    case _ADJUST:
-      ergodox_right_led_1_on();
       ergodox_right_led_2_on();
       break;
     default:
