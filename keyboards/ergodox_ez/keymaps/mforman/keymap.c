@@ -4,12 +4,15 @@
 
 enum keyboard_layers {
     _BASE = 0,
+    _WINDOWS,
     _LOWER,
     _RAISE
 };
 
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
+  ALT_TAB,
+  BSP_WRD
 };
 
 // Thumb cluster keys
@@ -19,6 +22,8 @@ enum custom_keycodes {
 #define TC_DEL LALT_T(KC_DELETE)
 #define TC_BSP LSFT_T(KC_BSPACE)
 #define TC_ENT LT(_RAISE ,KC_ENTER)
+
+#define TG_WIN TG(_WINDOWS)
 
 #include "g/keymap_combo.h"
 
@@ -58,11 +63,23 @@ _______, _______, _______, _______, TC_ESC ,                                    
                                     TC_SPC , TC_TAB, _______,       _______, TC_ENT , TC_BSP
 ),
 
+[_WINDOWS] = LAYOUT_ergodox_pretty(
+_______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______,
+_______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______,
+_______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
+_______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______,
+_______, _______, _______, _______, LCTL_T(KC_ESC),                                   _______, _______, _______, _______, _______,
+
+                                             _______, _______,       _______, _______,
+                                                      _______,       _______,
+                           LGUI_T(KC_SPACE), _______, _______,       _______, _______, _______
+),
+
 [_LOWER] = LAYOUT_ergodox_pretty(
 _______, _______      , _______     , _______     , _______     , _______, _______,      _______, _______, _______, _______, _______, _______, _______,
 _______, KC_F12       , KC_F7       , KC_F8       , KC_F9       , RESET  , _______,      _______, KC_INS , KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,
 _______, GUI_T(KC_F11), ALT_T(KC_F4), CTL_T(KC_F5), SFT_T(KC_F6), KC_VOLU,                        KC_CAPS, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
-_______, KC_F10       , KC_F1       , KC_F2       , KC_F3       , KC_VOLD, _______,      _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______,
+_______, KC_F10       , KC_F1       , KC_F2       , KC_F3       , KC_VOLD, _______,      _______, TG_WIN , KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______,
 _______, _______      , _______     , _______     , _______     ,                                          KC_BTN3, _______, _______, _______, _______,
 
                                                                   _______, _______,      _______, _______,
@@ -83,12 +100,44 @@ _______, _______, _______, _______, KC_DOT ,                                    
 )
 };
 
-
+bool is_alt_tab_active = false;
+uint16_t alt_tab_timer = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case ALT_TAB:
+      if (record->event.pressed) {
+        if (!is_alt_tab_active) {
+          is_alt_tab_active = true;
+          int mod = IS_LAYER_ON(_WINDOWS) ? KC_LALT : KC_LGUI;
+          register_code(mod);
+        }
+        alt_tab_timer = timer_read();
+        register_code(KC_TAB);
+      } else {
+        unregister_code(KC_TAB);
+      }
+      break;
+    case BSP_WRD:
+      if (record->event.pressed) {
+        int mod = IS_LAYER_ON(_WINDOWS) ? KC_LCTL : KC_LALT;
+        register_code16(mod);
+        tap_code(KC_BSPACE);
+        unregister_code16(mod);
+      }
+      break;
   }
   return true;
+}
+
+void matrix_scan_user(void) {
+  if (is_alt_tab_active) {
+    if (timer_elapsed(alt_tab_timer) > ALT_TAB_TERM) {
+      int mod = IS_LAYER_ON(_WINDOWS) ? KC_LALT : KC_LGUI;
+      unregister_code(mod);
+      is_alt_tab_active = false;
+    }
+  }
 }
 
 uint32_t layer_state_set_user(uint32_t state) {
@@ -98,11 +147,14 @@ uint32_t layer_state_set_user(uint32_t state) {
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
   switch (layer) {
+    case _WINDOWS:
+      ergodox_right_led_2_on();
+      break;
     case _LOWER:
-      ergodox_right_led_1_on();
+      ergodox_right_led_3_on();
       break;
     case _RAISE:
-      ergodox_right_led_2_on();
+      ergodox_right_led_1_on();
       break;
     default:
       break;
