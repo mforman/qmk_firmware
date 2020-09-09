@@ -1,0 +1,4 @@
+#define ALT_TAB_TERM 750
+
+#define COMBO_VARIABLE_LEN
+#define COMBO_TERM 30
