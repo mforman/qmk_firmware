@@ -43,3 +43,5 @@ KC_PIPE, KC_1   , KC_2   , KC_3   , _______,    _______, KC_LCBR       , KC_TILD
                   KC_DOT , KC_0   , _______,     _______, _______, _______
 )
 };
+
+#include "mforman.c"
