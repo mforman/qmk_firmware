@@ -23,3 +23,6 @@ COMB(cmk_commDotScl,     KC_SCLN,         KC_COMM, KC_DOT)
 COMB(volDwnUp,           KC_MUTE,         KC_VOLD, KC_VOLU)
 COMB(entBspCmdSf,        S(KC_LGUI),      TC_ENT, TC_BSP)
 COMB(spcTabCmdCt,        C(KC_LGUI),      TC_SPC, TC_TAB)
+
+// Word completion
+//#include "combos/eng-combos.def"

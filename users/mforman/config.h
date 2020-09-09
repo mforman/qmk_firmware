@@ -1,4 +1,9 @@
 #define ALT_TAB_TERM 750
 
+#define COMBO_ALLOW_ACTION_KEYS
 #define COMBO_VARIABLE_LEN
+
+#ifdef COMBO_TERM
+#undef COMBO_TERM
+#endif
 #define COMBO_TERM 30
