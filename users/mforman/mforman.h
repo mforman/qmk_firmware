@@ -2,16 +2,13 @@
 
 enum keyboard_layers {
     _QWERTY = 0,
-    _COLEMAK,
     _WINDOWS,
     _LOWER,
     _RAISE
 };
 
 enum mforman_keycodes {
-  QWERTY = SAFE_RANGE,
-  COLEMAK,
-  ALT_TAB,
+  ALT_TAB = SAFE_RANGE,
   BSP_WRD
 };
 

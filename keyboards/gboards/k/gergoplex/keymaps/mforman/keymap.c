@@ -11,14 +11,6 @@ KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,     KC_N   , KC_M   , KC_COMM , KC_
                   TC_ESC , TC_SPC , TC_TAB ,     TC_ENT , TC_BSP , TC_DEL
 ),
 
-[_COLEMAK] = LAYOUT_gergoplex(
-KC_Q   , KC_W   , KC_F   , KC_P   , KC_B   ,     KC_J   , KC_L   , KC_U    , KC_Y   , KC_QUOT ,
-KC_A   , KC_R   , KC_S   , KC_T   , KC_G   ,     KC_M   , KC_N   , KC_E    , KC_I   , KC_O    ,
-KC_Z   , KC_X   , KC_C   , KC_D   , KC_V   ,     KC_K   , KC_H   , KC_COMM , KC_DOT , KC_SLSH ,
-
-                  TC_ESC , TC_SPC , TC_TAB ,     TC_ENT , TC_BSP , TC_DEL
-),
-
 [_WINDOWS] = LAYOUT_gergoplex(
 _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______,
 _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______,
@@ -36,11 +28,11 @@ KC_F10       , KC_F1       , KC_F2       , KC_F3       , KC_VOLD,     TG_WIN , K
 ),
 
 [_RAISE] = LAYOUT_gergoplex(
-_______, KC_7   , KC_8   , KC_9   , QWERTY ,    COLEMAK, KC_LEFT_PAREN , KC_PLUS      , KC_RIGHT_PAREN, _______       ,
+_______, KC_7   , KC_8   , KC_9   , _______,    _______, KC_LEFT_PAREN , KC_PLUS      , KC_RIGHT_PAREN, _______       ,
 KC_COLN, KC_4   , KC_5   , KC_6   , KC_GRV ,    KC_MINS, SFT_T(KC_LBRC), CTL_T(KC_EQL), ALT_T(KC_RBRC), GUI_T(KC_SCLN),
 KC_PIPE, KC_1   , KC_2   , KC_3   , _______,    _______, KC_LCBR       , KC_TILD      , KC_RCBR       , KC_BSLASH     ,
 
-                  KC_DOT , KC_0   , _______,     _______, _______, _______
+                  KC_DOT , KC_0   , _______,    _______, _______, _______
 )
 };
 
