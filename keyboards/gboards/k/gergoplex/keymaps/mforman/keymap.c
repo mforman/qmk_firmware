@@ -24,7 +24,7 @@ KC_F12       , KC_F7       , KC_F8       , KC_F9       , RESET  ,     KC_INS , K
 GUI_T(KC_F11), ALT_T(KC_F4), CTL_T(KC_F5), SFT_T(KC_F6), KC_VOLU,     KC_CAPS, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT,
 KC_F10       , KC_F1       , KC_F2       , KC_F3       , KC_VOLD,     TG_WIN , KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
 
-                             _______     , _______     , _______,     KC_BTN1, KC_BTN2, KC_BTN3
+                             _______     , _______     , _______,     _______, KC_BTN1, KC_BTN2
 ),
 
 [_RAISE] = LAYOUT_gergoplex(
