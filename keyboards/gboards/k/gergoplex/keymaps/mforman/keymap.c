@@ -28,9 +28,9 @@ KC_F10       , KC_F1       , KC_F2       , KC_F3       , KC_VOLD,     TG_WIN , K
 ),
 
 [_RAISE] = LAYOUT_gergoplex(
-_______, KC_7   , KC_8   , KC_9   , _______,    _______, KC_LEFT_PAREN , KC_PLUS      , KC_RIGHT_PAREN, _______      ,
-KC_MINS, KC_4   , KC_5   , KC_6   , KC_SCLN,    KC_COLN, SFT_T(KC_LBRC), CTL_T(KC_EQL), ALT_T(KC_RBRC), GUI_T(KC_GRV),
-KC_PIPE, KC_1   , KC_2   , KC_3   , _______,    _______, KC_LCBR       , KC_TILD      , KC_RCBR       , KC_BSLASH    ,
+KC_SLSH, KC_7   , KC_8   , KC_9   , KC_PLUS,    _______, KC_LEFT_PAREN , KC_UNDS      , KC_RIGHT_PAREN, _______      ,
+KC_ASTR, KC_4   , KC_5   , KC_6   , KC_MINS,    KC_SCLN, SFT_T(KC_LBRC), CTL_T(KC_EQL), ALT_T(KC_RBRC), GUI_T(KC_GRV),
+KC_PIPE, KC_1   , KC_2   , KC_3   , KC_COMM,    KC_COLN, KC_LCBR       , KC_TILD      , KC_RCBR       , KC_BSLASH    ,
 
                   KC_DOT , KC_0   , _______,    _______, _______, _______
 )
