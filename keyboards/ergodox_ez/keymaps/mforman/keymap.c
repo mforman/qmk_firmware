@@ -63,7 +63,7 @@ _______, _______      , _______     , _______     , _______     ,               
 
 [_RAISE] = LAYOUT_ergodox_pretty(
 _______, _______, _______, _______, _______, _______, _______,      _______, _______, _______       , _______      , _______       , _______      , _______,
-_______, KC_SLSH, KC_7   , KC_8   , KC_9   , KC_PLUS, _______,      _______, _______, KC_LEFT_PAREN , KC_UNDS      , KC_RIGHT_PAREN, _______      , _______,
+_______, KC_SLSH, KC_7   , KC_8   , KC_9   , KC_PLUS, _______,      _______, XXXXXXX, KC_LEFT_PAREN , KC_UNDS      , KC_RIGHT_PAREN, XXXXXXX      , _______,
 _______, KC_ASTR, KC_4   , KC_5   , KC_6   , KC_MINS,                        KC_SCLN, SFT_T(KC_LBRC), CTL_T(KC_EQL), ALT_T(KC_RBRC), GUI_T(KC_GRV), _______,
 _______, KC_PIPE, KC_1   , KC_2   , KC_3   , KC_COMM, _______,      _______, KC_COLN, KC_LCBR       , KC_TILD      , KC_RCBR       , KC_BSLASH    , _______,
 _______, _______, _______, _______, KC_DOT ,                                          _______       , _______      , _______       , _______      , _______,
