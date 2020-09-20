@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
   [_RAISE] = LAYOUT_split_3x6_3(
-    _______, KC_SLSH, KC_7   , KC_8   , KC_9   , KC_PLUS,      XXXXXXX, KC_RPRN, KC_UNDS, KC_RPRN, XXXXXXX, _______,
+    _______, KC_SLSH, KC_7   , KC_8   , KC_9   , KC_PLUS,      XXXXXXX, KC_LPRN, KC_UNDS, KC_RPRN, XXXXXXX, _______,
     _______, KC_ASTR, KC_4   , KC_5   , KC_6   , KC_MINS,      KC_SCLN, MT_LBRC, MT_EQL , MT_RBRC, MT_GRV , _______,
     _______, KC_PIPE, KC_1   , KC_2   , KC_3   , KC_COMM,      KC_COLN, KC_LCBR, KC_TILD, KC_RCBR, KC_BSLS, _______,
 
@@ -58,15 +58,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 int RGB_current_mode;
-
-// Setting ADJUST layer RGB back to default
-void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
-  if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
-    layer_on(layer3);
-  } else {
-    layer_off(layer3);
-  }
-}
 
 void matrix_init_user(void) {
     #ifdef RGBLIGHT_ENABLE
@@ -302,13 +293,14 @@ void suspend_wakeup_init_keymap(void) {
 uint32_t layer_state_set_user(uint32_t state) {
   state = update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
   uint8_t layer = biton32(state);
-  update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
   switch (layer) {
     case _WINDOWS:
       break;
     case _LOWER:
       break;
     case _RAISE:
+      break;
+    case _ADJUST:
       break;
     default:
       break;
