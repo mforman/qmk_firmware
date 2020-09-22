@@ -1,7 +1,14 @@
+#pragma once
+
 #include "mforman.h"
 
 bool is_alt_tab_active = false;
 uint16_t alt_tab_timer = 0;
+
+__attribute__ ((weak))
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+  return true;
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
@@ -49,8 +56,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
       break;
   }
-  return true;
+  return process_record_keymap(keycode, record);
 }
+
+__attribute__ ((weak))
+void matrix_scan_keymap(void) {}
 
 void matrix_scan_user(void) {
   if (is_alt_tab_active) {
@@ -60,4 +70,15 @@ void matrix_scan_user(void) {
       is_alt_tab_active = false;
     }
   }
+  matrix_scan_keymap();
 }
+
+__attribute__ ((weak))
+uint32_t layer_state_set_keymap(uint32_t state) {
+  return state;
+}
+
+uint32_t layer_state_set_user(uint32_t state) {
+  state = update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+  return layer_state_set_keymap(state);
+};

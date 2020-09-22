@@ -33,9 +33,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_LOWER] = LAYOUT_split_3x6_3(
-    _______, KC_F12 , KC_F7  , KC_F8  , KC_F9  , RESET  ,      KC_INS , KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,
-    _______, MT_F11 , MT_F4  , MT_F5  , MT_F6  , KC_VOLU,      KC_CAPS, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
-    _______, KC_F10 , KC_F1  , KC_F2  , KC_F3  , KC_VOLD,      TG_WIN , KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______,
+    _______, KC_F12 , KC_F7  , KC_F8  , KC_F9  , KC_VOLU,      KC_INS , KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,
+    _______, MT_F11 , MT_F4  , MT_F5  , MT_F6  , KC_VOLD,      KC_CAPS, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
+    _______, KC_F10 , KC_F1  , KC_F2  , KC_F3  , XXXXXXX,      XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______,
 
                                _______, _______, _______,      _______, KC_BTN1, KC_BTN2
 ),
@@ -49,9 +49,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
   [_ADJUST] = LAYOUT_split_3x6_3(
-    _______, RGBRST , _______, _______, _______, _______,      _______, _______, _______, _______, _______ , _______,
+    _______, RGBRST , _______, _______, _______, RESET  ,      _______, _______, _______, _______, _______ , _______,
     _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI,      _______, _______, _______, _______, _______ , _______,
-    _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD,      _______, _______, _______, _______, RGB_RMOD, _______,
+    _______, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD,      TG_WIN , _______, _______, _______, RGB_RMOD, _______,
 
                                _______, _______, _______,      _______, _______, _______
 )
@@ -290,8 +290,7 @@ void suspend_wakeup_init_keymap(void) {
 
 #endif
 
-uint32_t layer_state_set_user(uint32_t state) {
-  state = update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+uint32_t layer_state_set_keymap(uint32_t state) {
   uint8_t layer = biton32(state);
   switch (layer) {
     case _WINDOWS:
@@ -307,3 +306,5 @@ uint32_t layer_state_set_user(uint32_t state) {
   }
   return state;
 };
+
+

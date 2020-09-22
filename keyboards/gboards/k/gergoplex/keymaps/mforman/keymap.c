@@ -20,9 +20,9 @@ _______, _______, _______, _______, _______,     _______, _______, _______, ____
 ),
 
 [_LOWER] = LAYOUT_gergoplex(
-KC_F12 , KC_F7  , KC_F8  , KC_F9  , RESET  ,     KC_INS , KC_HOME, KC_PGDN, KC_PGUP, KC_END ,
-MT_F11 , MT_F4  , MT_F5  , MT_F6  , KC_VOLU,     KC_CAPS, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT,
-KC_F10 , KC_F1  , KC_F2  , KC_F3  , KC_VOLD,     TG_WIN , KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
+KC_F12 , KC_F7  , KC_F8  , KC_F9  , KC_VOLU,     KC_INS , KC_HOME, KC_PGDN, KC_PGUP, KC_END ,
+MT_F11 , MT_F4  , MT_F5  , MT_F6  , KC_VOLD,     KC_CAPS, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT,
+KC_F10 , KC_F1  , KC_F2  , KC_F3  , XXXXXXX,     XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
 
                 _______, _______, _______,     _______, KC_BTN1, KC_BTN2
 ),
@@ -33,7 +33,14 @@ KC_ASTR, KC_4   , KC_5   , KC_6   , KC_MINS,    KC_SCLN, MT_LBRC, MT_EQL , MT_RB
 KC_PIPE, KC_1   , KC_2   , KC_3   , KC_COMM,    KC_COLN, KC_LCBR, KC_TILD, KC_RCBR, KC_BSLS,
 
                   KC_DOT , KC_0   , _______,    _______, _______, _______
-)
+),
+
+[_ADJUST] = LAYOUT_gergoplex(
+_______, _______, _______, _______, RESET  ,     _______, _______, _______, _______, _______,
+_______, _______, _______, _______, _______,     _______, _______, _______, _______, _______,
+_______, _______, _______, _______, _______,     TG_WIN , _______, _______, _______, _______,
+
+                  _______, _______, _______,     _______, _______, _______
+),
 };
 
-#include "mforman.c"

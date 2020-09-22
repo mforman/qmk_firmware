@@ -74,9 +74,7 @@ _______, _______, _______, _______, KC_DOT ,                                    
 )
 };
 
-#include "mforman.c" // in users/mforman
-
-uint32_t layer_state_set_user(uint32_t state) {
+uint32_t layer_state_set_keymap(uint32_t state) {
   uint8_t layer = biton32(state);
   ergodox_board_led_off();
   ergodox_right_led_1_off();
@@ -97,3 +95,4 @@ uint32_t layer_state_set_user(uint32_t state) {
   }
   return state;
 };
+

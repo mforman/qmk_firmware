@@ -1,4 +1,7 @@
 #pragma once
+#include QMK_KEYBOARD_H
+
+#include "version.h"
 
 enum keyboard_layers {
     _QWERTY = 0,
@@ -33,5 +36,9 @@ enum mforman_keycodes {
 #define MT_EQL  CTL_T(KC_EQL)
 #define MT_RBRC ALT_T(KC_RBRC)
 #define MT_GRV  GUI_T(KC_GRV)
+
+uint32_t layer_state_set_keymap(uint32_t state);
+bool     process_record_keymap(uint16_t keycode, keyrecord_t *record);
+void     matrix_scan_keymap(void);
 
 #include "g/keymap_combo.h"
