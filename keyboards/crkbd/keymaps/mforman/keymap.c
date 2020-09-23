@@ -277,6 +277,36 @@ void oled_task_user(void) {
 
 #endif
 
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.pressed) {
+#ifdef OLED_DRIVER_ENABLE
+        oled_timer = timer_read32();
+#endif
+    // set_timelog();
+  }
+
+  switch (keycode) {
+    case RGBRST:
+      #ifdef RGBLIGHT_ENABLE
+        if (record->event.pressed) {
+          eeconfig_update_rgblight_default();
+          rgblight_enable();
+          RGB_current_mode = rgblight_config.mode;
+        }
+      #endif
+      #ifdef RGB_MATRIX_ENABLE
+        if (record->event.pressed) {
+          eeconfig_update_rgb_matrix_default();
+          rgb_matrix_enable();
+        }
+      #endif
+      break;
+    default:
+      return true;
+  }
+  return true;
+}
+
 
 #ifdef RGB_MATRIX_ENABLE
 

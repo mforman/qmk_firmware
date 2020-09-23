@@ -1,7 +1,4 @@
-#include QMK_KEYBOARD_H
 #include "mforman.h" // in users/mforman
-#include "config.h"
-#include "version.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*

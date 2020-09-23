@@ -1,6 +1,5 @@
-#pragma once
-
 #include "mforman.h"
+#include "g/keymap_combo.h"
 
 bool is_alt_tab_active = false;
 uint16_t alt_tab_timer = 0;
@@ -11,13 +10,9 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-#ifdef OLED_DRIVER_ENABLE
-        oled_timer = timer_read32();
-#endif
-    // set_timelog();
+  if (!process_record_keymap(keycode, record)) {
+      return false;
   }
-
   switch (keycode) {
     case ALT_TAB:
       if (record->event.pressed) {
@@ -40,23 +35,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code16(mod);
       }
       break;
-    case RGBRST:
-#ifdef RGBLIGHT_ENABLE
-      if (record->event.pressed) {
-        eeconfig_update_rgblight_default();
-        rgblight_enable();
-        RGB_current_mode = rgblight_config.mode;
-        }
-#endif
-#ifdef RGB_MATRIX_ENABLE
-      if (record->event.pressed) {
-        eeconfig_update_rgb_matrix_default();
-        rgb_matrix_enable();
-      }
-#endif
-      break;
+    default:
+      return true;
   }
-  return process_record_keymap(keycode, record);
+  return true;
 }
 
 __attribute__ ((weak))
