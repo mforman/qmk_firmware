@@ -84,4 +84,6 @@ enum mforman_keycodes {
 uint32_t layer_state_set_keymap(uint32_t state);
 bool     process_record_keymap(uint16_t keycode, keyrecord_t *record);
 void     matrix_scan_keymap(void);
+void     suspend_power_down_keymap(void);
+void     suspend_wakeup_init_keymap(void);
 
