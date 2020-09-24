@@ -67,6 +67,15 @@ enum mforman_keycodes {
 #define _________________RAISE_R3__________________        KC_COLN, KC_LCBR, KC_TILD, KC_RCBR, KC_BSLS
 
 
+#define ________________ADJUST_L1__________________        RGB_MOD, _______, _______, RGB_RMOD, _______
+#define ________________ADJUST_L2__________________        RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI , RGB_SPI
+#define ________________ADJUST_L3__________________        RGBRST , RGB_HUD, RGB_SAD, RGB_VAD , RGB_SPD
+
+#define ________________ADJUST_R1__________________        _______, _______, _______, _______, RESET
+#define ________________ADJUST_R2__________________        _______, TG_WIN , _______, _______, _______
+#define ________________ADJUST_R3__________________        _______, _______, _______, _______, _______
+
+
 #define ________________NUMBER_LEFT________________       KC_1,    KC_2,    KC_3,    KC_4,    KC_5
 #define ________________NUMBER_RIGHT_______________       KC_6,    KC_7,    KC_8,    KC_9,    KC_0
 #define ___________________BLANK___________________       _______, _______, _______, _______, _______
