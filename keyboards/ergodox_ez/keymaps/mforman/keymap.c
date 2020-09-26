@@ -1,5 +1,6 @@
-#include "mforman.h" // in users/mforman
+#include "mforman.h"  // in users/mforman
 
+// clang-format off
 #define LAYOUT_ergodox_pretty_wrapper(...)   LAYOUT_ergodox_pretty(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -64,29 +65,30 @@ _______, _______, _______, _______, _______,                                    
 )
 };
 
-uint32_t layer_state_set_keymap(uint32_t state) {
-  uint8_t layer = biton32(state);
-  ergodox_board_led_off();
-  ergodox_right_led_1_off();
-  ergodox_right_led_2_off();
-  ergodox_right_led_3_off();
-  switch (layer) {
-    case _WINDOWS:
-      ergodox_right_led_2_on();
-      break;
-    case _LOWER:
-      ergodox_right_led_3_on();
-      break;
-    case _RAISE:
-      ergodox_right_led_1_on();
-      break;
-    case _ADJUST:
-      ergodox_right_led_1_on();
-      ergodox_right_led_3_on();
-      break;
-    default:
-      break;
-  }
-  return state;
-};
+// clang-format on
 
+uint32_t layer_state_set_keymap(uint32_t state) {
+    uint8_t layer = biton32(state);
+    ergodox_board_led_off();
+    ergodox_right_led_1_off();
+    ergodox_right_led_2_off();
+    ergodox_right_led_3_off();
+    switch (layer) {
+        case _WINDOWS:
+            ergodox_right_led_2_on();
+            break;
+        case _LOWER:
+            ergodox_right_led_3_on();
+            break;
+        case _RAISE:
+            ergodox_right_led_1_on();
+            break;
+        case _ADJUST:
+            ergodox_right_led_1_on();
+            ergodox_right_led_3_on();
+            break;
+        default:
+            break;
+    }
+    return state;
+};

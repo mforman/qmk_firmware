@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "mforman.h"
 
+// clang-format off
 #define LAYOUT_gergoplex_wrapper(...)   LAYOUT_gergoplex(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -45,4 +46,4 @@ ___________________BLANK___________________,      ________________ADJUST_R3_____
                   _______, _______, _______,      _______, _______, _______
 ),
 };
-
+// clang-format on
