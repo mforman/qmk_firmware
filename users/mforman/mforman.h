@@ -36,8 +36,8 @@ enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGBRST };
 #define _________________QWERTY_R2_________________ KC_H, KC_J, KC_K, KC_L, KC_QUOT
 #define _________________QWERTY_R3_________________ KC_N, KC_M, KC_COMM, KC_DOT, KC_SLASH
 
-#define _________________LOWER_L1__________________ KC_F12, KC_F7, KC_F8, KC_F9, KC_VOLU
-#define _________________LOWER_L2__________________ MT_F11, MT_F4, MT_F5, MT_F6, KC_VOLD
+#define _________________LOWER_L1__________________ KC_F12, KC_F7, KC_F8, KC_F9, XXXXXXX
+#define _________________LOWER_L2__________________ MT_F11, MT_F4, MT_F5, MT_F6, XXXXXXX
 #define _________________LOWER_L3__________________ KC_F10, KC_F1, KC_F2, KC_F3, XXXXXXX
 
 #define _________________LOWER_R1__________________ KC_INS, KC_HOME, KC_PGDN, KC_PGUP, KC_END
@@ -52,13 +52,13 @@ enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGBRST };
 #define _________________RAISE_R2__________________ KC_SCLN, MT_LBRC, MT_EQL, MT_RBRC, MT_GRV
 #define _________________RAISE_R3__________________ KC_COLN, KC_LCBR, KC_TILD, KC_RCBR, KC_BSLS
 
-#define ________________ADJUST_L1__________________ RGB_MOD, _______, _______, RGB_RMOD, _______
+#define ________________ADJUST_L1__________________ RGB_MOD, XXXXXXX, XXXXXXX, RGB_RMOD, XXXXXXX
 #define ________________ADJUST_L2__________________ RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI
 #define ________________ADJUST_L3__________________ RGBRST, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD
 
-#define ________________ADJUST_R1__________________ _______, _______, _______, _______, RESET
-#define ________________ADJUST_R2__________________ _______, TG_WIN, _______, _______, _______
-#define ________________ADJUST_R3__________________ _______, _______, _______, _______, _______
+#define ________________ADJUST_R1__________________ XXXXXXX, TG_WIN , XXXXXXX, XXXXXXX, RESET
+#define ________________ADJUST_R2__________________ KC_MPLY, KC_MRWD, KC_VOLD, KC_VOLU, KC_MFFD
+#define ________________ADJUST_R3__________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 
 #define ________________NUMBER_LEFT________________ KC_1, KC_2, KC_3, KC_4, KC_5
 #define ________________NUMBER_RIGHT_______________ KC_6, KC_7, KC_8, KC_9, KC_0
