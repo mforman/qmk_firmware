@@ -49,8 +49,8 @@ enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGBRST };
 #define _________________RAISE_L3__________________ KC_PIPE, KC_1, KC_2, KC_3, KC_COMM
 
 #define _________________RAISE_R1__________________ XXXXXXX, KC_LPRN, KC_UNDS, KC_RPRN, XXXXXXX
-#define _________________RAISE_R2__________________ KC_SCLN, MT_LBRC, MT_EQL, MT_RBRC, MT_GRV
-#define _________________RAISE_R3__________________ KC_COLN, KC_LCBR, KC_TILD, KC_RCBR, KC_BSLS
+#define _________________RAISE_R2__________________ KC_SPC, MT_LBRC, MT_EQL, MT_RBRC, MT_GRV
+#define _________________RAISE_R3__________________ KC_ENT, KC_LCBR, KC_TILD, KC_RCBR, KC_BSLS
 
 #define ________________ADJUST_L1__________________ RGB_MOD, XXXXXXX, XXXXXXX, RGB_RMOD, XXXXXXX
 #define ________________ADJUST_L2__________________ RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI
