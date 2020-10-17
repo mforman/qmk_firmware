@@ -10,13 +10,24 @@ COMB(klColon,            KC_COLN,         KC_K, KC_L)
 COMB(mCommUnd,           KC_UNDS,         KC_M, KC_COMMA)
 COMB(commDotScl,         KC_SCLN,         KC_COMM, KC_DOT)
 
+// COLEMAK
+COMB(wfEsc,              KC_ESC,          KC_W, KC_F)
+COMB(rsBspc,             KC_BSPC,         KC_R, KC_S)
+COMB(arsBspc,            BSP_WRD,         KC_A, KC_R, KC_S)
+COMB(stTab,              KC_TAB,          KC_S, KC_T)
+COMB(rstAltTab,          ALT_TAB,         KC_R, KC_S, KC_T)
+COMB(luBckSlsh,          KC_BSLASH,       KC_L, KC_U)
+COMB(neDash,             KC_MINS,         KC_N, KC_E)
+COMB(eiColon,            KC_COLN,         KC_E, KC_I)
+COMB(hCommUnd,           KC_UNDS,         KC_H, KC_COMMA)
+
 SUBS(wrdLeft,   SS_DOWN(X_LALT)SS_TAP(X_LEFT)SS_UP(X_LALT),  KC_LEFT, KC_MS_L)
 SUBS(wrdRight,  SS_DOWN(X_LALT)SS_TAP(X_RIGHT)SS_UP(X_LALT), KC_RIGHT, KC_MS_R)
 
 SUBS(ctrlLeft,  SS_DOWN(X_LCTL)SS_TAP(X_LEFT)SS_UP(X_LCTL),  KC_LEFT, KC_HOME)
-SUBS(ctrlDown,  SS_DOWN(X_LCTL)SS_TAP(X_DOWN)SS_UP(X_LCTL),  KC_DOWN, KC_PGDN) 
+SUBS(ctrlDown,  SS_DOWN(X_LCTL)SS_TAP(X_DOWN)SS_UP(X_LCTL),  KC_DOWN, KC_PGDN)
 SUBS(ctrlUp,    SS_DOWN(X_LCTL)SS_TAP(X_UP)SS_UP(X_LCTL),    KC_UP, KC_PGUP)
-SUBS(ctrlRight, SS_DOWN(X_LCTL)SS_TAP(X_RIGHT)SS_UP(X_LCTL), KC_RIGHT, KC_END) 
+SUBS(ctrlRight, SS_DOWN(X_LCTL)SS_TAP(X_RIGHT)SS_UP(X_LCTL), KC_RIGHT, KC_END)
 
 COMB(volDwnUp,           KC_MUTE,         KC_VOLD, KC_VOLU)
 COMB(entBspCmdSf,        S(KC_LGUI),      TC_ENT, TC_BSP)

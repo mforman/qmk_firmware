@@ -27,6 +27,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                TC_ESC , TC_SPC , TC_TAB ,     TC_ENT , TC_BSP , TC_DEL
 ),
 
+  [_COLEMAK] = LAYOUT_crkbd_wrapper(
+    KC_TAB , _________________COLEMAK_L1________________,     _________________COLEMAK_R1________________, _______,
+    _______, _________________COLEMAK_L2________________,     _________________COLEMAK_R2________________, _______,
+    _______, _________________COLEMAK_L3________________,     _________________COLEMAK_R3________________, _______,
+
+                               TC_ESC , TC_SPC , TC_TAB ,     TC_ENT , TC_BSP , TC_DEL
+),
+
   [_WINDOWS] = LAYOUT_crkbd_wrapper(
     _______, ___________________BLANK___________________,      ___________________BLANK___________________, _______,
     _______, ___________________BLANK___________________,      ___________________BLANK___________________, _______,

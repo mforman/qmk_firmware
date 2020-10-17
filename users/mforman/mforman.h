@@ -4,9 +4,9 @@
 
 #include "version.h"
 
-enum keyboard_layers { _QWERTY = 0, _WINDOWS, _LOWER, _RAISE, _ADJUST };
+enum keyboard_layers { _QWERTY = 0, _COLEMAK, _WINDOWS, _LOWER, _RAISE, _ADJUST };
 
-enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGBRST };
+enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGBRST, COLEMAK, QWERTY };
 
 // Thumb cluster keys
 #define TC_ESC LGUI_T(KC_ESCAPE)
@@ -36,6 +36,14 @@ enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGBRST };
 #define _________________QWERTY_R2_________________ KC_H, KC_J, KC_K, KC_L, KC_QUOT
 #define _________________QWERTY_R3_________________ KC_N, KC_M, KC_COMM, KC_DOT, KC_SLASH
 
+#define _________________COLEMAK_L1________________ KC_Q, KC_W, KC_F, KC_P, KC_B
+#define _________________COLEMAK_L2________________ KC_A, KC_R, KC_S, KC_T, KC_G
+#define _________________COLEMAK_L3________________ KC_Z, KC_X, KC_C, KC_D, KC_V
+
+#define _________________COLEMAK_R1________________ KC_J, KC_L, KC_U, KC_Y, KC_QUOT
+#define _________________COLEMAK_R2________________ KC_M, KC_N, KC_E, KC_I, KC_O
+#define _________________COLEMAK_R3________________ KC_K, KC_H, KC_COMM, KC_DOT, KC_SLASH
+
 #define _________________LOWER_L1__________________ KC_F12, KC_F7, KC_F8, KC_F9, XXXXXXX
 #define _________________LOWER_L2__________________ MT_F11, MT_F4, MT_F5, MT_F6, XXXXXXX
 #define _________________LOWER_L3__________________ KC_F10, KC_F1, KC_F2, KC_F3, XXXXXXX
@@ -56,7 +64,7 @@ enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGBRST };
 #define ________________ADJUST_L2__________________ RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI
 #define ________________ADJUST_L3__________________ RGBRST, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD
 
-#define ________________ADJUST_R1__________________ XXXXXXX, TG_WIN , XXXXXXX, XXXXXXX, RESET
+#define ________________ADJUST_R1__________________ XXXXXXX, TG_WIN, QWERTY, COLEMAK, RESET
 #define ________________ADJUST_R2__________________ KC_MPLY, KC_MRWD, KC_VOLD, KC_VOLU, KC_MFFD
 #define ________________ADJUST_R3__________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 

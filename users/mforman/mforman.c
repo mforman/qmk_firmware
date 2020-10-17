@@ -32,6 +32,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code16(mod);
             }
             break;
+        case COLEMAK:
+            set_single_persistent_default_layer(_COLEMAK);
+            break;
+        case QWERTY:
+            set_single_persistent_default_layer(_QWERTY);
+            break;
         default:
             return true;
     }
