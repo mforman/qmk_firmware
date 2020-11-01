@@ -3,10 +3,11 @@
 #include QMK_KEYBOARD_H
 
 #include "version.h"
+#include "eeprom.h"
 
 enum keyboard_layers { _QWERTY = 0, _COLEMAK, _WINDOWS, _LOWER, _RAISE, _ADJUST };
 
-enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGBRST, COLEMAK, QWERTY };
+enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGB_IDL, KC_RGB_T, RGBRST, COLEMAK, QWERTY };
 
 // Thumb cluster keys
 #define TC_ESC LGUI_T(KC_ESCAPE)
@@ -60,7 +61,7 @@ enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGBRST, COLEMAK, QWERTY }
 #define _________________RAISE_R2__________________ KC_SPC, MT_LBRC, MT_EQL, MT_RBRC, MT_GRV
 #define _________________RAISE_R3__________________ KC_ENT, KC_LCBR, KC_TILD, KC_RCBR, KC_BSLS
 
-#define ________________ADJUST_L1__________________ RGB_MOD, XXXXXXX, XXXXXXX, RGB_RMOD, XXXXXXX
+#define ________________ADJUST_L1__________________ RGB_MOD, RGB_IDL, KC_RGB_T, RGB_RMOD, XXXXXXX
 #define ________________ADJUST_L2__________________ RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI
 #define ________________ADJUST_L3__________________ RGBRST, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD
 
@@ -77,3 +78,15 @@ bool     process_record_keymap(uint16_t keycode, keyrecord_t *record);
 void     matrix_scan_keymap(void);
 void     suspend_power_down_keymap(void);
 void     suspend_wakeup_init_keymap(void);
+
+// clang-format off
+typedef union {
+    uint32_t raw;
+    struct {
+        bool    rgb_layer_change     :1;
+        bool    rgb_matrix_idle_anim :1;
+    };
+} userspace_config_t;
+// clang-format on
+
+extern userspace_config_t userspace_config;

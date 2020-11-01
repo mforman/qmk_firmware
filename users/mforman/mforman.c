@@ -4,6 +4,8 @@
 bool     is_alt_tab_active = false;
 uint16_t alt_tab_timer     = 0;
 
+userspace_config_t userspace_config;
+
 __attribute__((weak)) bool process_record_keymap(uint16_t keycode, keyrecord_t *record) { return true; }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -63,6 +65,30 @@ void matrix_scan_user(void) {
         }
     }
     matrix_scan_keymap();
+}
+
+__attribute__((weak)) void led_set_keymap(uint8_t usb_led) {}
+
+// Any custom LED code goes here.
+// So far, I only have keyboard specific code,
+// So nothing goes here.
+void led_set_user(uint8_t usb_led) { led_set_keymap(usb_led); }
+
+
+__attribute__((weak)) void keyboard_pre_init_keymap(void) {}
+
+void keyboard_pre_init_user(void) {
+    userspace_config.raw = eeconfig_read_user();
+    keyboard_pre_init_keymap();
+}
+__attribute__((weak)) void eeconfig_init_keymap(void) {}
+
+void eeconfig_init_user(void) {
+    userspace_config.raw              = 0;
+    userspace_config.rgb_layer_change = true;
+    eeconfig_update_user(userspace_config.raw);
+    eeconfig_init_keymap();
+    keyboard_init();
 }
 
 __attribute__((weak)) uint32_t layer_state_set_keymap(uint32_t state) { return state; }
