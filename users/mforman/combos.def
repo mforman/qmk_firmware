@@ -35,3 +35,5 @@ COMB(spcTabCmdCt,        C(KC_LGUI),      TC_SPC, TC_TAB)
 
 // Word completion
 //#include "combos/eng-combos.def"
+
+#include "combos-keymap.def"

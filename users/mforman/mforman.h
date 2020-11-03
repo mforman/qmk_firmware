@@ -5,9 +5,27 @@
 #include "version.h"
 #include "eeprom.h"
 
-enum keyboard_layers { _QWERTY = 0, _COLEMAK, _WINDOWS, _LOWER, _RAISE, _ADJUST };
+enum keyboard_layers {
+    _QWERTY = 0,
+    _COLEMAK,
+    _WINDOWS,
+    _LOWER,
+    _RAISE,
+    _ADJUST
+};
 
-enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGB_IDL, KC_RGB_T, RGBRST, COLEMAK, QWERTY };
+enum mforman_keycodes {
+    ALT_TAB = SAFE_RANGE,
+    BSP_WRD,
+    RGB_IDL,
+    KC_RGB_T,
+    RGBRST,
+    COLEMAK,
+    QWERTY,
+    CR_RT,
+    CR_RM,
+    CR_RB
+};
 
 // Thumb cluster keys
 #define TC_ESC LGUI_T(KC_ESCAPE)
