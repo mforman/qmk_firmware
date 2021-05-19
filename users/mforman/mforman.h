@@ -5,27 +5,9 @@
 #include "version.h"
 #include "eeprom.h"
 
-enum keyboard_layers {
-    _QWERTY = 0,
-    _COLEMAK,
-    _WINDOWS,
-    _LOWER,
-    _RAISE,
-    _ADJUST
-};
+enum keyboard_layers { _QWERTY = 0, _COLEMAK, _WINDOWS, _LOWER, _RAISE, _ADJUST };
 
-enum mforman_keycodes {
-    ALT_TAB = SAFE_RANGE,
-    BSP_WRD,
-    RGB_IDL,
-    KC_RGB_T,
-    RGBRST,
-    COLEMAK,
-    QWERTY,
-    CR_RT,
-    CR_RM,
-    CR_RB
-};
+enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGB_IDL, KC_RGB_T, RGBRST, COLEMAK, QWERTY, CR_RT, CR_RM, CR_RB };
 
 // Thumb cluster keys
 #define TC_ESC LGUI_T(KC_ESCAPE)
@@ -46,6 +28,8 @@ enum mforman_keycodes {
 #define MT_EQL CTL_T(KC_EQL)
 #define MT_RBRC ALT_T(KC_RBRC)
 #define MT_GRV GUI_T(KC_GRV)
+
+#define CMD_GRV LCMD(KC_GRV)
 
 #define _________________QWERTY_L1_________________ KC_Q, KC_W, KC_E, KC_R, KC_T
 #define _________________QWERTY_L2_________________ KC_A, KC_S, KC_D, KC_F, KC_G
@@ -75,7 +59,7 @@ enum mforman_keycodes {
 #define _________________RAISE_L2__________________ KC_ASTR, KC_4, KC_5, KC_6, KC_PLUS
 #define _________________RAISE_L3__________________ KC_PIPE, KC_1, KC_2, KC_3, KC_COMM
 
-#define _________________RAISE_R1__________________ XXXXXXX, KC_LPRN, KC_UNDS, KC_RPRN, XXXXXXX
+#define _________________RAISE_R1__________________ XXXXXXX, KC_LPRN, KC_UNDS, KC_RPRN, CMD_GRV
 #define _________________RAISE_R2__________________ KC_SPC, MT_LBRC, MT_EQL, MT_RBRC, MT_GRV
 #define _________________RAISE_R3__________________ KC_ENT, KC_LCBR, KC_TILD, KC_RCBR, KC_BSLS
 
