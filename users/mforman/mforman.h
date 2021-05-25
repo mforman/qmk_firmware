@@ -69,7 +69,7 @@ enum mforman_keycodes { ALT_TAB = SAFE_RANGE, BSP_WRD, RGB_IDL, KC_RGB_T, RGBRST
 
 #define ________________ADJUST_R1__________________ XXXXXXX, TG_WIN, QWERTY, COLEMAK, RESET
 #define ________________ADJUST_R2__________________ KC_MPLY, KC_MRWD, KC_VOLD, KC_VOLU, KC_MFFD
-#define ________________ADJUST_R3__________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ________________ADJUST_R3__________________ XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI
 
 #define ________________NUMBER_LEFT________________ KC_1, KC_2, KC_3, KC_4, KC_5
 #define ________________NUMBER_RIGHT_______________ KC_6, KC_7, KC_8, KC_9, KC_0
