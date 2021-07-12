@@ -84,7 +84,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 #    endif
         return OLED_ROTATION_270;
 #    ifndef SPLIT_KEYBOARD
-    }  else {
+    } else {
         return rotation;
     }
 #    endif
@@ -226,13 +226,11 @@ void render_mod_status_ctrl_shift(uint8_t modifiers) {
 
 void render_logo(void) {
     static const char PROGMEM raw_logo[] = {
-        0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,128,128,  0,  0,  0,192,224,240,240,240,240,240,240,240,224,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-        0,  0,  0,  0,  0,  0,  0,  0,  0,128,192,224,240,  0,  0,240,252,254,255,255,255,  1,240,252,255,255,255,255,255,255,255,255,127, 31,  7,  0,  0,  0,  0,  0,  0,  0,  0,240,248,252, 30, 14, 14, 14, 14, 14, 14, 30, 60, 56, 48,  0,  0,240,248,252, 30, 14, 14, 14, 14, 14, 14, 30,252,248,240,  0,  0,254,254,252, 28, 14, 14, 14, 14,  0,  0,254,254,252, 28, 14, 14, 14, 14, 30,252,248,240,  0,  0,240,248,252,222,206,206,206,206,206,206,222,252,248,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-        0,  0,  0,  0,  0,  0,  0,  0,  0, 63,255,255,255,254,240,255,255,255,255,255,255,248,255,255,255,255,255,255,255,255,255,193,128,128,128,192,240,  0,  0,  0,  0,  0,  0, 15, 31, 63,120,112,112,112,112,112,112,120, 60, 28, 12,  0,  0, 15, 31, 63,120,112,112,112,112,112,112,120, 63, 31, 15,  0,  0,127,127,127,  0,  0,  0,  0,  0,  0,  0,127,127,127,  0,  0,  0,  0,  0,  0,127,127,127,  0,  0, 15, 31, 63,121,113,113,113,113,113,113,121, 61, 29, 13,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-        0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  3,  3,  3,  3,  1,  1,  3,  3,  7,  7,  7,  3,  3,  1,  3,  7,  7,  7,  7,  7,  7,  7,  3,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+        0,   0,   0,   0,  0,  0,  0,  0,  0,   0,   0,   0,  0,  0,  0,  0,  0,   0,   0,   128, 128, 128, 0,   0,   0,  192, 224, 240, 240, 240, 240, 240, 240, 240, 224, 0,  0,  0,  0,  0,  0, 0, 0,   0,   0,   0,  0,  0,  0,  0,  0,  0,   0,   0,   0, 0, 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 0, 0, 0, 0, 0, 0,  0,  0,  0,   0,   0,   0,   0,   0,   128, 192, 224, 240, 0,  0, 240, 252, 254, 255, 255, 255, 1,   240, 252, 255, 255, 255, 255, 255, 255, 255, 255, 127, 31,  7,   0, 0, 0, 0, 0, 0, 0, 0,
+        240, 248, 252, 30, 14, 14, 14, 14, 14,  14,  30,  60, 56, 48, 0,  0,  240, 248, 252, 30,  14,  14,  14,  14,  14, 14,  30,  252, 248, 240, 0,   0,   254, 254, 252, 28, 14, 14, 14, 14, 0, 0, 254, 254, 252, 28, 14, 14, 14, 14, 30, 252, 248, 240, 0, 0, 240, 248, 252, 222, 206, 206, 206, 206, 206, 206, 222, 252, 248, 240, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 255, 255, 255, 254, 240, 255, 255, 255, 255, 255, 255, 248, 255, 255, 255, 255, 255, 255, 255, 255, 255, 193, 128, 128, 128, 192, 240, 0, 0, 0, 0, 0, 0, 15, 31, 63, 120, 112, 112, 112, 112, 112, 112, 120, 60,  28,  12, 0, 0,   15,  31,  63,  120, 112, 112, 112, 112, 112, 112, 120, 63,  31,  15,  0,   0,   127, 127, 127, 0, 0, 0, 0, 0, 0, 0, 127,
+        127, 127, 0,   0,  0,  0,  0,  0,  127, 127, 127, 0,  0,  15, 31, 63, 121, 113, 113, 113, 113, 113, 113, 121, 61, 29,  13,  0,   0,   0,   0,   0,   0,   0,   0,   0,  0,  0,  0,  0,  0, 0, 0,   0,   0,   0,  0,  0,  0,  0,  0,  0,   0,   1,   3, 3, 3,   3,   1,   1,   3,   3,   7,   7,   7,   3,   3,   1,   3,   7,   7, 7, 7, 7, 7, 7, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 0, 0, 0, 0, 0, 0,  0,  0,  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  0, 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 0, 0, 0, 0, 0, 0,
     };
     oled_write_raw_P(raw_logo, sizeof(raw_logo));
-
 }
 
 void render_layout_name(void) {
@@ -248,26 +246,10 @@ void render_layout_name(void) {
 }
 
 void render_layer_state(void) {
-    static const char PROGMEM default_layer[] = {
-        0x20, 0x94, 0x95, 0x96, 0x20,
-        0x20, 0xb4, 0xb5, 0xb6, 0x20,
-        0x20, 0xd4, 0xd5, 0xd6, 0x20, 0
-    };
-    static const char PROGMEM raise_layer[]   = {
-        0x20, 0x97, 0x98, 0x99, 0x20,
-        0x20, 0xb7, 0xb8, 0xb9, 0x20,
-        0x20, 0xd7, 0xd8, 0xd9, 0x20, 0
-    };
-    static const char PROGMEM lower_layer[]   = {
-        0x20, 0x9a, 0x9b, 0x9c, 0x20,
-        0x20, 0xba, 0xbb, 0xbc, 0x20,
-        0x20, 0xda, 0xdb, 0xdc, 0x20, 0
-    };
-    static const char PROGMEM adjust_layer[]  = {
-        0x20, 0x9d, 0x9e, 0x9f, 0x20,
-        0x20, 0xbd, 0xbe, 0xbf, 0x20,
-        0x20, 0xdd, 0xde, 0xdf, 0x20, 0
-    };
+    static const char PROGMEM default_layer[] = {0x20, 0x94, 0x95, 0x96, 0x20, 0x20, 0xb4, 0xb5, 0xb6, 0x20, 0x20, 0xd4, 0xd5, 0xd6, 0x20, 0};
+    static const char PROGMEM raise_layer[]   = {0x20, 0x97, 0x98, 0x99, 0x20, 0x20, 0xb7, 0xb8, 0xb9, 0x20, 0x20, 0xd7, 0xd8, 0xd9, 0x20, 0};
+    static const char PROGMEM lower_layer[]   = {0x20, 0x9a, 0x9b, 0x9c, 0x20, 0x20, 0xba, 0xbb, 0xbc, 0x20, 0x20, 0xda, 0xdb, 0xdc, 0x20, 0};
+    static const char PROGMEM adjust_layer[]  = {0x20, 0x9d, 0x9e, 0x9f, 0x20, 0x20, 0xbd, 0xbe, 0xbf, 0x20, 0x20, 0xdd, 0xde, 0xdf, 0x20, 0};
     if (layer_state_is(_ADJUST)) {
         oled_write_P(adjust_layer, false);
     } else if (layer_state_is(_LOWER)) {
@@ -280,14 +262,8 @@ void render_layer_state(void) {
 }
 
 void render_os_config(void) {
-    static const char PROGMEM apple[] = {
-        0x20, 0x80, 0x81, 0x20, 0x20,
-        0x20, 0xa0, 0xa1, 0x20, 0x20, 0
-    };
-    static const char PROGMEM windows[]   = {
-        0x20, 0x82, 0x83, 0x20, 0x20,
-        0x20, 0xa2, 0xa3, 0x20, 0x20, 0
-    };
+    static const char PROGMEM apple[]   = {0x20, 0x80, 0x81, 0x20, 0x20, 0x20, 0xa0, 0xa1, 0x20, 0x20, 0};
+    static const char PROGMEM windows[] = {0x20, 0x82, 0x83, 0x20, 0x20, 0x20, 0xa2, 0xa3, 0x20, 0x20, 0};
     if (layer_state_is(_WINDOWS)) {
         oled_write_P(windows, false);
     } else {
@@ -306,9 +282,7 @@ void render_status_main(void) {
     render_os_config();
 }
 
-void render_status_secondary(void) {
-    render_logo();
-}
+void render_status_secondary(void) { render_logo(); }
 
 void oled_task_user(void) {
     if (timer_elapsed32(oled_timer) > 30000) {
@@ -375,173 +349,173 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
             break;
         case RGB_IDL:  // This allows me to use underglow as layer indication, or as normal
 #if defined(RGB_MATRIX_ENABLE) && defined(RGB_MATRIX_FRAMEBUFFER_EFFECTS)
-                if (record->event.pressed) {
-                    userspace_config.rgb_matrix_idle_anim ^= 1;
-                    dprintf("RGB Matrix Idle Animation [EEPROM]: %u\n", userspace_config.rgb_matrix_idle_anim);
-                    eeconfig_update_user(userspace_config.raw);
-                    if (userspace_config.rgb_matrix_idle_anim) {
-                        rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
-                    }
+            if (record->event.pressed) {
+                userspace_config.rgb_matrix_idle_anim ^= 1;
+                dprintf("RGB Matrix Idle Animation [EEPROM]: %u\n", userspace_config.rgb_matrix_idle_anim);
+                eeconfig_update_user(userspace_config.raw);
+                if (userspace_config.rgb_matrix_idle_anim) {
+                    rgb_matrix_mode_noeeprom(RGB_MATRIX_TYPING_HEATMAP);
                 }
+            }
 #endif
             break;
-            case RGB_MODE_FORWARD ... RGB_MODE_GRADIENT:  // quantum_keycodes.h L400 for definitions
-                if (record->event.pressed) {
-                    bool is_eeprom_updated;
-#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                    // This disables layer indication, as it's assumed that if you're changing this ... you want that disabled
-                    if (userspace_config.rgb_layer_change) {
-                        userspace_config.rgb_layer_change = false;
-                        dprintf("rgblight layer change [EEPROM]: %u\n", userspace_config.rgb_layer_change);
-                        is_eeprom_updated = true;
-                    }
-#    endif
-#    if defined(RGB_MATRIX_ENABLE) && defined(RGB_MATRIX_FRAMEBUFFER_EFFECTS)
-                    if (userspace_config.rgb_matrix_idle_anim) {
-                        userspace_config.rgb_matrix_idle_anim = false;
-                        dprintf("RGB Matrix Idle Animation [EEPROM]: %u\n", userspace_config.rgb_matrix_idle_anim);
-                        is_eeprom_updated = true;
-                    }
-#    endif
-                    if (is_eeprom_updated) {
-                        eeconfig_update_user(userspace_config.raw);
-                    }
+        case RGB_MODE_FORWARD ... RGB_MODE_GRADIENT:  // quantum_keycodes.h L400 for definitions
+            if (record->event.pressed) {
+                bool is_eeprom_updated;
+#if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                // This disables layer indication, as it's assumed that if you're changing this ... you want that disabled
+                if (userspace_config.rgb_layer_change) {
+                    userspace_config.rgb_layer_change = false;
+                    dprintf("rgblight layer change [EEPROM]: %u\n", userspace_config.rgb_layer_change);
+                    is_eeprom_updated = true;
                 }
+#endif
+#if defined(RGB_MATRIX_ENABLE) && defined(RGB_MATRIX_FRAMEBUFFER_EFFECTS)
+                if (userspace_config.rgb_matrix_idle_anim) {
+                    userspace_config.rgb_matrix_idle_anim = false;
+                    dprintf("RGB Matrix Idle Animation [EEPROM]: %u\n", userspace_config.rgb_matrix_idle_anim);
+                    is_eeprom_updated = true;
+                }
+#endif
+                if (is_eeprom_updated) {
+                    eeconfig_update_user(userspace_config.raw);
+                }
+            }
 
-#    if defined(RGBLIGHT_DISABLE_KEYCODES) || defined(RGB_MATRIX_DISABLE_KEYCODES)
-                if (keycode == RGB_MODE_FORWARD && record->event.pressed) {
-                    uint8_t shifted = get_mods() & (MOD_MASK_SHIFT);
-                    if (shifted) {
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_step_reverse();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_step_reverse();
-#        endif
-                    } else {
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_step();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_step();
-#        endif
-                    }
-                } else if (keycode == RGB_MODE_REVERSE && record->event.pressed) {
-                    uint8_t shifted = get_mods() & (MOD_MASK_SHIFT);
-                    if (shifted) {
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_step();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_step();
-#        endif
-                    } else {
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_step_reverse();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_step_reverse();
-#        endif
-                    }
-                } else if (keycode == RGB_HUI) {
-#        ifndef SPLIT_KEYBOARD
-                    if (record->event.pressed) {
-#        else
-                    if (!record->event.pressed) {
-#        endif
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_increase_hue();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_increase_hue();
-#        endif
-                    }
-                } else if (keycode == RGB_HUD) {
-#        ifndef SPLIT_KEYBOARD
-                    if (record->event.pressed) {
-#        else
-                    if (!record->event.pressed) {
-#        endif
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_decrease_hue();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_decrease_hue();
-#        endif
-                    }
-                } else if (keycode == RGB_SAI) {
-#        ifndef SPLIT_KEYBOARD
-                    if (record->event.pressed) {
-#        else
-                    if (!record->event.pressed) {
-#        endif
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_increase_sat();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_increase_sat();
-#        endif
-                    }
-                } else if (keycode == RGB_SAD) {
-#        ifndef SPLIT_KEYBOARD
-                    if (record->event.pressed) {
-#        else
-                    if (!record->event.pressed) {
-#        endif
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_decrease_sat();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_decrease_sat();
-#        endif
-                    }
-                } else if (keycode == RGB_VAI) {
-#        ifndef SPLIT_KEYBOARD
-                    if (record->event.pressed) {
-#        else
-                    if (!record->event.pressed) {
-#        endif
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_increase_val();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_increase_val();
-#        endif
-                    }
-                } else if (keycode == RGB_VAD) {
-#        ifndef SPLIT_KEYBOARD
-                    if (record->event.pressed) {
-#        else
-                    if (!record->event.pressed) {
-#        endif
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_decrease_val();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_decrease_val();
-#        endif
-                    }
-                } else if (keycode == RGB_SPI) {
-                    if (record->event.pressed) {
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_increase_speed();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_increase_speed();
-#        endif
-                    }
-                } else if (keycode == RGB_SPD) {
-                    if (record->event.pressed) {
-#        if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                        rgblight_decrease_speed();
-#        endif
-#        if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                        rgb_matrix_decrease_speed();
-#        endif
-                    }
-                }
-                return false;
+#if defined(RGBLIGHT_DISABLE_KEYCODES) || defined(RGB_MATRIX_DISABLE_KEYCODES)
+            if (keycode == RGB_MODE_FORWARD && record->event.pressed) {
+                uint8_t shifted = get_mods() & (MOD_MASK_SHIFT);
+                if (shifted) {
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_step_reverse();
 #    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_step_reverse();
+#    endif
+                } else {
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_step();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_step();
+#    endif
+                }
+            } else if (keycode == RGB_MODE_REVERSE && record->event.pressed) {
+                uint8_t shifted = get_mods() & (MOD_MASK_SHIFT);
+                if (shifted) {
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_step();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_step();
+#    endif
+                } else {
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_step_reverse();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_step_reverse();
+#    endif
+                }
+            } else if (keycode == RGB_HUI) {
+#    ifndef SPLIT_KEYBOARD
+                if (record->event.pressed) {
+#    else
+                if (!record->event.pressed) {
+#    endif
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_increase_hue();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_increase_hue();
+#    endif
+                }
+            } else if (keycode == RGB_HUD) {
+#    ifndef SPLIT_KEYBOARD
+                if (record->event.pressed) {
+#    else
+                if (!record->event.pressed) {
+#    endif
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_decrease_hue();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_decrease_hue();
+#    endif
+                }
+            } else if (keycode == RGB_SAI) {
+#    ifndef SPLIT_KEYBOARD
+                if (record->event.pressed) {
+#    else
+                if (!record->event.pressed) {
+#    endif
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_increase_sat();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_increase_sat();
+#    endif
+                }
+            } else if (keycode == RGB_SAD) {
+#    ifndef SPLIT_KEYBOARD
+                if (record->event.pressed) {
+#    else
+                if (!record->event.pressed) {
+#    endif
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_decrease_sat();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_decrease_sat();
+#    endif
+                }
+            } else if (keycode == RGB_VAI) {
+#    ifndef SPLIT_KEYBOARD
+                if (record->event.pressed) {
+#    else
+                if (!record->event.pressed) {
+#    endif
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_increase_val();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_increase_val();
+#    endif
+                }
+            } else if (keycode == RGB_VAD) {
+#    ifndef SPLIT_KEYBOARD
+                if (record->event.pressed) {
+#    else
+                if (!record->event.pressed) {
+#    endif
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_decrease_val();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_decrease_val();
+#    endif
+                }
+            } else if (keycode == RGB_SPI) {
+                if (record->event.pressed) {
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_increase_speed();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_increase_speed();
+#    endif
+                }
+            } else if (keycode == RGB_SPD) {
+                if (record->event.pressed) {
+#    if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                    rgblight_decrease_speed();
+#    endif
+#    if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                    rgb_matrix_decrease_speed();
+#    endif
+                }
+            }
+            return false;
+#endif
         default:
             return true;
     }
@@ -589,10 +563,10 @@ void rgb_matrix_layer_helper(uint8_t hue, uint8_t sat, uint8_t val, uint8_t mode
 void check_default_layer(uint8_t mode, uint8_t type) {
     switch (get_highest_layer(default_layer_state)) {
         case _QWERTY:
-            rgb_matrix_layer_helper(HSV_CYAN, mode, rgb_matrix_config.speed, type);
+            rgb_matrix_layer_helper(HSV_AZURE, mode, rgb_matrix_config.speed, type);
             break;
         case _COLEMAK:
-            rgb_matrix_layer_helper(HSV_MAGENTA, mode, rgb_matrix_config.speed, type);
+            rgb_matrix_layer_helper(HSV_CORAL, mode, rgb_matrix_config.speed, type);
             break;
     }
 }
@@ -630,9 +604,9 @@ void rgb_matrix_indicators_user(void) {
 #endif
 
 void keyboard_post_init_user(void) {
-  // Customise these values to desired behaviour
-  debug_enable=true;
-  //debug_matrix=true;
-  //debug_keyboard=true;
-  //debug_mouse=true;
+    // Customise these values to desired behaviour
+    debug_enable = true;
+    // debug_matrix=true;
+    // debug_keyboard=true;
+    // debug_mouse=true;
 }
